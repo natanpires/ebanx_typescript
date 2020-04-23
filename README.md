@@ -6,7 +6,7 @@ Usage
 ---------
 ```javascript
 //Require the module
-import ebanx from "ebanx";
+import ebanx from "ebanx-ts";
 
 // Contruct with mandatory parameters integrationKey, testMode and httpMode.
 const eb = new ebanx("1231000", true, true);
@@ -19,28 +19,33 @@ const eb = new ebanx("1231000", true, true);
 
     To create a new API request, just call one of the following functions 
     on the ebanx object and supply it with the request parameters:
-    * ebanx.cancel()
-    * ebanx.capture()
-    * ebanx.direct()
-    * ebanx.documentBalance()
-    * ebanx.exchange()
-    * ebanx.print()
-    * ebanx.query()
-    * ebanx.refund()
-    * ebanx.refundOrCancel()
-    * ebanx.request()
-    * ebanx.token()
-    * ebanx.zipcode()
+    * eb.cancel()
+    * eb.capture()
+    * eb.direct()
+    * eb.documentBalance()
+    * eb.exchange()
+    * eb.print()
+    * eb.query()
+    * eb.refund()
+    * eb.refundOrCancel()
+    * eb.request()
+    * eb.token()
+    * eb.zipcode()
 
     You can check your settings by accessing the settings module:
-    * ebanx.settings
-    * ebanx.settings.integrationKey
-    * ebanx.settings.testMode
+    * eb.settings
+    * eb.settings.integrationKey
+    * eb.settings.testMode
+
+    And change the settings by the following methods:
+    * eb.setKey()
+    * eb.setTestMode()
+    * eb.setHttp()
 
 #Examples:
 
 ```Typescript
-import ebanx from "ebanx";
+import ebanx from "ebanx-ts";
 
 const eb = new ebanx("1231000", true, true);
 
@@ -66,4 +71,5 @@ eb.request(params, (error, reply) => {
 ```
 
 ## Changelog
+* **0.1.0**: Beta release (Added __mocks__ and minor fixes).
 * **0.0.3**: Pre-release.

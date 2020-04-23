@@ -36,16 +36,63 @@ export default class Ebanx {
   };
 
   // Autoloading functions
-  cancel = () => cancel;
-  capture = () => capture;
-  direct = () => direct;
-  documentBalance = () => documentBalance;
-  exchange = () => exchange;
-  print = () => print;
-  query = () => query;
-  refund = () => refund;
-  refundOrCancel = () => refundOrCancel;
-  request = () => request;
-  token = () => token;
-  zipcode = () => zipcode;
+  cancel = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => cancel(params, callback);
+
+  capture = (
+    params: any,
+    callback: any
+  ) => capture(params, callback);
+  
+  direct = (
+    params: { [x: string]: any; payment?: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => direct(params, callback);
+
+  documentBalance = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => documentBalance(params, callback);
+
+  exchange = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => exchange(params, callback);
+
+  print = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => print(params, callback);
+
+  query = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => query(params, callback);
+
+  refund = (
+    params: { [x: string]: any; operation?: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => refund(params, callback);
+
+  refundOrCancel = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => refundOrCancel(params, callback);
+
+  request = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => request(params, callback);
+
+  token = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => token(params, callback);
+
+  zipcode = (
+    params: { [x: string]: any },
+    callback: (arg0: any, arg1: any) => void
+  ) => zipcode(params, callback);
 }
