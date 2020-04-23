@@ -1,0 +1,50 @@
+{
+  "name": "wiser-educacao-ebanx-library",
+  "author": "Natan Pires de Souza",
+  "version": "0.0.3",
+  "description": "Migration of Ebanx NodeJs lib to Typescript and also upgraded.",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha -r ts-node/register ./__mocks__/*.test.ts",
+    "pretty": "pretty-quick",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn type-check --watch",
+    "tslint": "tslint 'src/**/*.ts'",
+    "pretslint": "yarn type-check",
+    "tslint:fix": "tslint --fix 'src/**/*.ts'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^13.13.2",
+    "@types/request": "^2.48.4",
+    "@types/supertest": "^2.0.6",
+    "chai": "^4.2.0",
+    "husky": "^1.1.2",
+    "mocha": "^7.1.1",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0",
+    "request": "^2.88.2",
+    "ts-node": "^8.9.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "@types/joi": "^14.3.3",
+    "dotenv": "^8.0.0",
+    "joi": "^14.3.1"
+  },
+  "files": ["lib/**/*"]
+}
