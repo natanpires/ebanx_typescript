@@ -1,11 +1,11 @@
 {
   "name": "wiser-educacao-ebanx-library",
   "author": "Natan Pires de Souza",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Migration of Ebanx NodeJs lib to Typescript and also upgraded.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "tsc",
     "test": "mocha -r ts-node/register ./__mocks__/*.test.ts",
@@ -21,7 +21,7 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "@types/morgan": "^1.7.35",
@@ -39,12 +39,12 @@
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.4.5"
-  },
-  "dependencies": {
     "@types/joi": "^14.3.3",
     "dotenv": "^8.0.0",
     "joi": "^14.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.5"
   },
   "files": ["lib/**/*"]
 }

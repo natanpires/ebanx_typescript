@@ -2,11 +2,18 @@ EBANX NodeJs-TS Module:
 ==============
 EBANX is the market leader in e-commerce payment solutions for International Merchants selling online to Brazil. This module enables you to integrate EBANX with NodeJs.
 
+Installation
+-----------
+
+### npm
+
+npm i wiser-educacao-ebanx-library
+
 Usage
 ---------
-```javascript
+```Typescript
 //Require the module
-import ebanx from "ebanx-ts";
+import ebanx from "wiser-educacao-ebanx-library";
 
 // Contruct with mandatory parameters integrationKey, testMode and httpMode.
 const eb = new ebanx("1231000", true, true);
@@ -45,7 +52,7 @@ const eb = new ebanx("1231000", true, true);
 #Examples:
 
 ```Typescript
-import ebanx from "ebanx-ts";
+import ebanx from "wiser-educacao-ebanx-library";
 
 const eb = new ebanx("1231000", true, true);
 
