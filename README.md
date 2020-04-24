@@ -1,21 +1,21 @@
-# EBANX NodeJs-TS Module:
+# EBANX Typescript module:
 
 [![Build Status](https://travis-ci.org/natanpires/ebanx_typescript.svg?branch=master)](https://travis-ci.org/natanpires/ebanx_typescript)
 [![codecov](https://codecov.io/gh/natanpires/ebanx_typescript/branch/master/graph/badge.svg)](https://codecov.io/gh/natanpires/ebanx_typescript)
 
-EBANX is the market leader in e-commerce payment solutions for International Merchants selling online to Brazil. This module enables you to integrate EBANX with NodeJs and Typescript.
+EBANX is the market leader in e-commerce payment solutions for International Merchants selling online to Brazil. This module enables you to integrate EBANX with Typescript.
 
 ## Installation
 
 ### npm
 
-npm i ts-ebanx-library --save
+npm i ts-ebanx --save
 
 ## Usage
 
 ```Typescript
 // Require the module
-import ebanx from "ts-ebanx-library";
+import ebanx from "ts-ebanx";
 
 // Construct with mandatory parameters integrationKey, testMode and httpMode.
 const eb = new ebanx("1231000", true, true);
@@ -54,7 +54,7 @@ const eb = new ebanx("1231000", true, true);
 #Examples:
 
 ```Typescript
-import ebanx from "ts-ebanx-library";
+import ebanx from "ts-ebanx";
 
 const eb = new ebanx("1231000", true, true);
 
