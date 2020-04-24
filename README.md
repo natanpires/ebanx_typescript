@@ -9,13 +9,13 @@ EBANX is the market leader in e-commerce payment solutions for International Mer
 
 ### npm
 
-npm i ts-ebanx --save
+npm i ebanx-ts --save
 
 ## Usage
 
 ```Typescript
 // Require the module
-import ebanx from "ts-ebanx";
+import ebanx from "ebanx-ts";
 
 // Construct with mandatory parameters integrationKey, testMode and httpMode.
 const eb = new ebanx("1231000", true, true);
@@ -54,7 +54,7 @@ const eb = new ebanx("1231000", true, true);
 #Examples:
 
 ```Typescript
-import ebanx from "ts-ebanx";
+import ebanx from "ebanx-ts";
 
 const eb = new ebanx("1231000", true, true);
 
