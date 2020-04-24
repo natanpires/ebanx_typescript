@@ -5,7 +5,7 @@
 import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
 
-export const print = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+export const print = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
   const method = "GET";
   const uri = "print";
 
@@ -17,11 +17,10 @@ export const print = (params: { [x: string]: any }, callback: (arg0: any, arg1: 
     method,
   };
 
-  client.send(config, params, (err: any, reply: any) => {
+  await client.send(config, params, (err: any, reply: any) => {
     if (err) {
-      callback(err, null);
-    } else {
-      callback(null, reply);
+      return callback(err, null);
     }
+    return callback(null, reply);
   });
 };

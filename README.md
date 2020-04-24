@@ -15,10 +15,10 @@ npm i ebanx-ts --save
 
 ```Typescript
 // Require the module
-import ebanx from "ebanx-ts";
+import ebanxTs from "ebanx-ts";
 
 // Construct with mandatory parameters integrationKey, testMode and httpMode.
-const eb = new ebanx("1231000", true, true);
+const eb = new ebanxTs("1231000", true, true);
 
 ```
 
@@ -54,9 +54,9 @@ const eb = new ebanx("1231000", true, true);
 #Examples:
 
 ```Typescript
-import ebanx from "ebanx-ts";
+import ebanxTs from "ebanx-ts";
 
-const eb = new ebanx("1231000", true, true);
+const eb = new ebanxTs("1231000", true, true);
 
 // Creating new checkout payment
 
@@ -81,6 +81,8 @@ eb.request(params, (error, reply) => {
 
 ## Changelog
 
+- **1.0.3**: Asynchronous methods
+- **1.0.2**: Added Axios (Removed deprecated **request**)
 - **1.0.0**: Released
 - **0.1.2**: ES5 to ES6
 - **0.1.0**: Beta release (Added **mocks** and minor fixes).

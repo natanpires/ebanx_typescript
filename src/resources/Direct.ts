@@ -5,7 +5,10 @@
 import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
 
-export const direct = (params: { [x: string]: any; payment?: object }, callback: (arg0: any, arg1: any) => void) => {
+export const direct = async (
+  params: { [x: string]: any; payment?: object },
+  callback: (arg0: any, arg1: any) => void,
+) => {
   const method = "POST";
   const uri = "ws/direct";
 
@@ -23,11 +26,10 @@ export const direct = (params: { [x: string]: any; payment?: object }, callback:
     direct: true,
   };
 
-  client.send(config, params, (err: any, reply: any) => {
+  await client.send(config, params, (err: any, reply: any) => {
     if (err) {
       callback(err, null);
-    } else {
-      callback(null, reply);
     }
+    return callback(null, reply);
   });
 };

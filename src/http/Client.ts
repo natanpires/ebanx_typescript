@@ -10,15 +10,14 @@
 import { default as config } from "../Config";
 import Validator from "../resources/Validator";
 import { construct } from "../resources/Constructor";
-import request from "request";
+import axios from "axios";
 
 class Client {
-  constructor() {}
-  send(
+  async send(
     options: {
       [x: string]: any;
       uri: string;
-      method: string;
+      method: any;
       params?: object | any;
       direct?: any;
     },
@@ -27,10 +26,12 @@ class Client {
   ) {
     const url = config.getEndPoint() + options.uri;
     const method = options.method;
+
     var data = {};
     for (var i in params) {
       construct(data, i, params[i]);
     }
+
     if (!config.usingHttp) {
       for (var i in options) {
         construct(data, i, options[i]);
@@ -38,48 +39,43 @@ class Client {
       callback(null, data);
     } else {
       Validator.validateConfig(config);
+
       options.params = data;
       options.params.integration_key = config.integrationKey;
+
       // If is Direct operation, change some parameters
       if (options.direct) {
         options.params.operation = "request";
         const req = { request_body: JSON.stringify(options.params) };
-        request(
-          {
-            url,
-            headers: {
-              "User-Agent": "Wiser Ebanx Direct",
-            },
-            method,
-            form: req,
+        await axios({
+          url,
+          headers: {
+            "User-Agent": "Ebanx Direct",
           },
-          (error: string, _response: any, body: any) => {
-            if (error) {
-              throw new Error(error);
-            } else {
-              callback(null, body);
-            }
-          },
-        );
-      } else {
-        request(
-          {
-            url,
-            headers: {
-              "User-Agent": "Wiser Ebanx Module",
-            },
-            method,
-            qs: options.params,
-          },
-          (error: string, _response: any, body: any) => {
-            if (error) {
-              throw new Error(error);
-            } else {
-              callback(null, body);
-            }
-          },
-        );
+          method,
+          data: req,
+        })
+          .then(response => {
+            return callback(null, response.data);
+          })
+          .catch(error => {
+            return callback(error.data, {});
+          });
       }
+      await axios({
+        url,
+        headers: {
+          "User-Agent": "Ebanx Module",
+        },
+        method,
+        params: options.params,
+      })
+        .then(response => {
+          return callback(null, response.data);
+        })
+        .catch(error => {
+          return callback(error.data, {});
+        });
     }
   }
 }

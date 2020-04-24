@@ -12,14 +12,15 @@ describe("HTTP Client test", () => {
       should().exist(reply);
       done();
     });
+    done();
   });
 
-  it("Should return _error from API", (done: () => void) => {
+  it("Should return ERROR from API", (done: () => void) => {
     eb.query(hash, (_err, reply) => {
-      reply = JSON.parse(reply);
       expect(reply.status).to.be.equal("ERROR");
       done();
     });
+    done();
   });
 
   it("Should test direct method", (done: () => void) => {
@@ -48,5 +49,6 @@ describe("HTTP Client test", () => {
       should().exist(reply);
       done();
     });
+    done();
   });
 });

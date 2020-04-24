@@ -5,7 +5,10 @@
 import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
 
-export const refund = (params: { [x: string]: any; operation?: any }, callback: (arg0: any, arg1: any) => void) => {
+export const refund = async (
+  params: { [x: string]: any; operation?: any },
+  callback: (arg0: any, arg1: any) => void,
+) => {
   const method = "POST";
   const uri = "ws/refund";
 
@@ -25,11 +28,10 @@ export const refund = (params: { [x: string]: any; operation?: any }, callback: 
     method,
   };
 
-  client.send(config, params, (err: any, reply: any) => {
+  await client.send(config, params, (err: any, reply: any) => {
     if (err) {
-      callback(err, null);
-    } else {
-      callback(null, reply);
+      return callback(err, null);
     }
+    return callback(null, reply);
   });
 };

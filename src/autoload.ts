@@ -25,44 +25,64 @@ export default class Ebanx {
     this.settings.usingHttp = usingHttp;
   }
 
-  setKey = (integrationKey: string) => {
+  setKey = (integrationKey: string): void => {
     this.settings.integrationKey = integrationKey;
   };
 
-  setTestMode = (testMode: boolean) => {
+  setTestMode = (testMode: boolean): void => {
     this.settings.testMode = testMode;
   };
 
-  setHttp = (usingHttp: boolean) => {
+  setHttp = (usingHttp: boolean): void => {
     this.settings.usingHttp = usingHttp;
   };
 
   // Autoloading functions
-  cancel = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => cancel(params, callback);
+  cancel = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await cancel(params, callback);
+  };
 
-  capture = (params: any, callback: any) => capture(params, callback);
+  capture = async (params: any, callback: any) => {
+    return await capture(params, callback);
+  };
 
-  direct = (params: { [x: string]: any; payment?: any }, callback: (arg0: any, arg1: any) => void) =>
-    direct(params, callback);
+  direct = async (params: { [x: string]: any; payment?: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await direct(params, callback);
+  };
 
-  documentBalance = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) =>
-    documentBalance(params, callback);
+  documentBalance = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await documentBalance(params, callback);
+  };
 
-  exchange = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => exchange(params, callback);
+  exchange = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await exchange(params, callback);
+  };
 
-  print = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => print(params, callback);
+  print = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await print(params, callback);
+  };
 
-  query = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => query(params, callback);
+  query = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await query(params, callback);
+  };
 
-  refund = (params: { [x: string]: any; operation?: any }, callback: (arg0: any, arg1: any) => void) =>
-    refund(params, callback);
+  refund = async (params: { [x: string]: any; operation?: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await refund(params, callback);
+  };
 
-  refundOrCancel = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) =>
-    refundOrCancel(params, callback);
+  refundOrCancel = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await refundOrCancel(params, callback);
+  };
 
-  request = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => request(params, callback);
+  request = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await request(params, callback);
+  };
 
-  token = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => token(params, callback);
+  token = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await token(params, callback);
+  };
 
-  zipcode = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => zipcode(params, callback);
+  zipcode = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+    return await zipcode(params, callback);
+  };
 }

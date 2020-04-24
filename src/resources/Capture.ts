@@ -5,7 +5,7 @@
 import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
 
-export const capture = (params: any, callback: any) => {
+export const capture = async (params: any, callback: any) => {
   const method = "GET";
   const uri = "ws/capture";
 
@@ -17,11 +17,10 @@ export const capture = (params: any, callback: any) => {
     method,
   };
 
-  client.send(config, params, (err: any, reply: any) => {
+  await client.send(config, params, (err: any, reply: any) => {
     if (err) {
-      callback(err, null);
-    } else {
-      callback(null, reply);
+      return callback(err, null);
     }
+    return callback(null, reply);
   });
 };
