@@ -1,3 +1,5 @@
+/* Copyright 2015 EBANX */
+/* Copyright 2020 Natan Pires de Souza */
 "use strict";
 
 import Config from "./Config";
@@ -36,63 +38,31 @@ export default class Ebanx {
   };
 
   // Autoloading functions
-  cancel = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => cancel(params, callback);
+  cancel = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => cancel(params, callback);
 
-  capture = (
-    params: any,
-    callback: any
-  ) => capture(params, callback);
-  
-  direct = (
-    params: { [x: string]: any; payment?: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => direct(params, callback);
+  capture = (params: any, callback: any) => capture(params, callback);
 
-  documentBalance = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => documentBalance(params, callback);
+  direct = (params: { [x: string]: any; payment?: any }, callback: (arg0: any, arg1: any) => void) =>
+    direct(params, callback);
 
-  exchange = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => exchange(params, callback);
+  documentBalance = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) =>
+    documentBalance(params, callback);
 
-  print = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => print(params, callback);
+  exchange = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => exchange(params, callback);
 
-  query = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => query(params, callback);
+  print = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => print(params, callback);
 
-  refund = (
-    params: { [x: string]: any; operation?: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => refund(params, callback);
+  query = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => query(params, callback);
 
-  refundOrCancel = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => refundOrCancel(params, callback);
+  refund = (params: { [x: string]: any; operation?: any }, callback: (arg0: any, arg1: any) => void) =>
+    refund(params, callback);
 
-  request = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => request(params, callback);
+  refundOrCancel = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) =>
+    refundOrCancel(params, callback);
 
-  token = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => token(params, callback);
+  request = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => request(params, callback);
 
-  zipcode = (
-    params: { [x: string]: any },
-    callback: (arg0: any, arg1: any) => void
-  ) => zipcode(params, callback);
+  token = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => token(params, callback);
+
+  zipcode = (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => zipcode(params, callback);
 }

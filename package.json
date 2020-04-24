@@ -1,11 +1,16 @@
 {
   "name": "wiser-educacao-ebanx-library",
-  "author": "Natan Pires de Souza",
-  "version": "0.1.0",
+  "license": "BSD-3-Clause",
+  "author": "Natan Pires de Souza <partisansouza@gmail.com> (https://wisereducacao.com/)",
+  "version": "0.1.2",
   "description": "Migration of Ebanx NodeJs lib to Typescript and also upgraded.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/natanpires/ebanx_typescript"
+  },
   "scripts": {
     "build": "tsc",
     "test": "mocha -r ts-node/register ./__mocks__/*.test.ts",
@@ -22,29 +27,31 @@
     }
   },
   "dependencies": {
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^7.0.2",
-    "@types/morgan": "^1.7.35",
     "@types/node": "^13.13.2",
     "@types/request": "^2.48.4",
     "@types/supertest": "^2.0.6",
-    "chai": "^4.2.0",
     "husky": "^1.1.2",
-    "mocha": "^7.1.1",
-    "nodemon": "^1.18.4",
     "prettier": "^1.14.3",
     "pretty-quick": "^1.7.0",
     "request": "^2.88.2",
     "ts-node": "^8.9.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "@types/joi": "^14.3.3",
-    "dotenv": "^8.0.0",
-    "joi": "^14.3.1"
+    "tslint-config-prettier": "^1.15.0"
   },
   "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/chai": "^4.2.11",
+    "mocha": "^7.1.1",
+    "chai": "^4.2.0",
     "typescript": "^3.4.5"
   },
-  "files": ["lib/**/*"]
+  "keywords": [
+    "ebanx",
+    "wiser",
+    "typescript"
+  ],
+  "files": [
+    "lib/**/*"
+  ]
 }

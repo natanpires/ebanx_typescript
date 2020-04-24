@@ -1,21 +1,20 @@
-EBANX NodeJs-TS Module:
-==============
-EBANX is the market leader in e-commerce payment solutions for International Merchants selling online to Brazil. This module enables you to integrate EBANX with NodeJs.
+# EBANX NodeJs-TS Module:
 
-Installation
------------
+EBANX is the market leader in e-commerce payment solutions for International Merchants selling online to Brazil. This module enables you to integrate EBANX with NodeJs and Typescript.
+
+## Installation
 
 ### npm
 
 npm i wiser-educacao-ebanx-library
 
-Usage
----------
+## Usage
+
 ```Typescript
-//Require the module
+// Require the module
 import ebanx from "wiser-educacao-ebanx-library";
 
-// Contruct with mandatory parameters integrationKey, testMode and httpMode.
+// Construct with mandatory parameters integrationKey, testMode and httpMode.
 const eb = new ebanx("1231000", true, true);
 
 ```
@@ -24,7 +23,7 @@ const eb = new ebanx("1231000", true, true);
     *integrationKey: your integration key. It will be different in test and production modes.
     *testMode: enable or disable the test mode. The default value is _true_.
 
-    To create a new API request, just call one of the following functions 
+    To create a new API request, just call one of the following functions
     on the ebanx object and supply it with the request parameters:
     * eb.cancel()
     * eb.capture()
@@ -56,9 +55,9 @@ import ebanx from "wiser-educacao-ebanx-library";
 
 const eb = new ebanx("1231000", true, true);
 
-//Creating new checkout payment
+// Creating new checkout payment
 
-const params = {
+const params : object = {
   currency_code       : 'USD',
   'amount'            : '22.00',
   'name'              : 'Jose da Silva',
@@ -74,9 +73,11 @@ eb.request(params, (error, reply) => {
     console.log(reply);
   }
 });
-    
+
 ```
 
 ## Changelog
-* **0.1.0**: Beta release (Added __mocks__ and minor fixes).
-* **0.0.3**: Pre-release.
+
+- **0.1.2**: ES5 to ES6
+- **0.1.0**: Beta release (Added **mocks** and minor fixes).
+- **0.0.3**: Pre-release.

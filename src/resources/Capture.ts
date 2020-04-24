@@ -1,3 +1,5 @@
+/* Copyright 2015 EBANX */
+/* Copyright 2020 Natan Pires de Souza */
 "use strict";
 
 import { default as client } from "../http/Client";
@@ -12,7 +14,7 @@ export const capture = (params: any, callback: any) => {
 
   const config = {
     uri,
-    method
+    method,
   };
 
   client.send(config, params, (err: any, reply: any) => {

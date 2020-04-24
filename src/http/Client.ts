@@ -1,3 +1,5 @@
+/* Copyright 2015 EBANX */
+/* Copyright 2020 Natan Pires de Souza */
 "use strict";
 /*
   tslint:disable: object-shorthand-properties-first
@@ -15,13 +17,13 @@ class Client {
   send(
     options: {
       [x: string]: any;
-      uri: any;
-      method: any;
-      params?: any;
+      uri: string;
+      method: string;
+      params?: object | any;
       direct?: any;
     },
     params: { [x: string]: any },
-    callback: { (err: any, reply: any): void; (arg0: any, arg1: {}): void }
+    callback: { (err: any, reply: object): void; (arg0: any, arg1: {}): void },
   ) {
     const url = config.getEndPoint() + options.uri;
     const method = options.method;
@@ -46,10 +48,10 @@ class Client {
           {
             url,
             headers: {
-              "User-Agent": "WISER - EBANX NodeJS Module Direct"
+              "User-Agent": "Wiser Ebanx Direct",
             },
             method,
-            form: req
+            form: req,
           },
           (error: string, _response: any, body: any) => {
             if (error) {
@@ -57,17 +59,17 @@ class Client {
             } else {
               callback(null, body);
             }
-          }
+          },
         );
       } else {
         request(
           {
             url,
             headers: {
-              "User-Agent": "WISER - EBANX NodeJS Module"
+              "User-Agent": "Wiser Ebanx Module",
             },
             method,
-            qs: options.params
+            qs: options.params,
           },
           (error: string, _response: any, body: any) => {
             if (error) {
@@ -75,7 +77,7 @@ class Client {
             } else {
               callback(null, body);
             }
-          }
+          },
         );
       }
     }

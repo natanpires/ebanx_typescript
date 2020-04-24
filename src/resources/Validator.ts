@@ -1,6 +1,9 @@
+/* Copyright 2015 EBANX */
+/* Copyright 2020 Natan Pires de Souza */
 "use strict";
+
 class Validator {
-  params: any;
+  params: object | any;
 
   exists = (key: string) => {
     if (key.indexOf(".") > 0) {
@@ -40,9 +43,7 @@ class Validator {
   validatePresenceOr = (key1: string, key2: string) => {
     if (this.exists(key1)) {
       if (this.exists(key2)) {
-        throw new Error(
-          `Either parameter ${key1} or ${key2} must be supplied, but not both.`
-        );
+        throw new Error(`Either parameter ${key1} or ${key2} must be supplied, but not both.`);
       }
 
       return true;
