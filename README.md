@@ -56,31 +56,45 @@ const eb = new ebanxTs("1231000", true, true);
 ```Typescript
 import ebanxTs from "ebanx-ts";
 
-const eb = new ebanxTs("1231000", true, true);
+const eb = new ebanxTs("integration_key", true, true);
 
-// Creating new checkout payment
-
-const params : object = {
-  currency_code       : 'USD',
-  'amount'            : '22.00',
-  'name'              : 'Jose da Silva',
-  'email'             : 'jose@example.org',
-  'payment_type_code' : '_all',
-  'merchant_payment_code' : "example123"
+const direct: object = {
+  payment: {
+		name: "Juan Garcia",
+		email: "juangarciamexico@example.com",
+		address: "Oyono",
+		street_number: "882",
+		city: "Hermosillo",
+		state: "SO",
+		zipcode: "48822",
+		country: "mx",
+		phone_number: "0405777687",
+		payment_type_code: "visa",
+		merchant_payment_code: "949284c1474",
+		currency_code: "MXN",
+		amount_total: "100",
+		creditcard: {
+			card_number: "4111111111111111",
+			card_name: "Juan Garcia",
+			card_due_date: "12/2021",
+			card_cvv: "123"
+		}
+	}
 };
 
-eb.request(params, (error, reply) => {
-  if(error) {
-    console.log(error);
-  } else {
-    console.log(reply);
+// Create direct payment
+eb.direct(
+  direct,
+  (_err, response) => {
+    console.log(response);
   }
-});
+);
 
 ```
 
 ## Changelog
 
+- **1.1.0**: Added querystring for GET methods
 - **1.0.3**: Asynchronous methods
 - **1.0.2**: Added Axios (Removed deprecated **request**)
 - **1.0.0**: Released

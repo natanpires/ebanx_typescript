@@ -10,6 +10,7 @@
 import { default as config } from "../Config";
 import Validator from "../resources/Validator";
 import { construct } from "../resources/Constructor";
+import * as qs from "querystring";
 import axios from "axios";
 
 class Client {
@@ -46,11 +47,12 @@ class Client {
       // If is Direct operation, change some parameters
       if (options.direct) {
         options.params.operation = "request";
-        const req = { request_body: JSON.stringify(options.params) };
+        const req = JSON.stringify(options.params);
         await axios({
           url,
           headers: {
-            "User-Agent": "Ebanx Direct",
+            "User-Agent": "EbanxTS Direct",
+            "Content-Type": "application/x-www-form-urlencoded",
           },
           method,
           data: req,
@@ -61,21 +63,23 @@ class Client {
           .catch(error => {
             return callback(error.data, {});
           });
-      }
-      await axios({
-        url,
-        headers: {
-          "User-Agent": "Ebanx Module",
-        },
-        method,
-        params: options.params,
-      })
-        .then(response => {
-          return callback(null, response.data);
+      } else {
+        await axios({
+          url,
+          headers: {
+            "User-Agent": "EbanxTS Module",
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          method,
+          params: qs.stringify(options.params),
         })
-        .catch(error => {
-          return callback(error.data, {});
-        });
+          .then(response => {
+            return callback(null, response.data);
+          })
+          .catch(error => {
+            return callback(error.data, {});
+          });
+      }
     }
   }
 }
