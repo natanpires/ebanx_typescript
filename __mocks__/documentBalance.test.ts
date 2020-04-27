@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx from "../src";
+import ebanx, { DocumentBalance } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const currency = { currency_code: "USD", document: "853.513.468.93" };
+const currency: DocumentBalance = { currency_code: "USD", document: "853.513.468.93" };
 
 describe("DocumentBalance Operation", () => {
   eb.documentBalance(currency, (_err, reply) => {

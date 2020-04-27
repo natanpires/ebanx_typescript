@@ -10,7 +10,7 @@
 import { default as config } from "../Config";
 import Validator from "../resources/Validator";
 import { construct } from "../resources/Constructor";
-import * as qs from "querystring";
+import qs from "qs";
 import axios from "axios";
 
 class Client {
@@ -20,7 +20,8 @@ class Client {
       uri: string;
       method: any;
       params?: object | any;
-      direct?: any;
+      requestType?: string;
+      direct?: boolean;
     },
     params: { [x: string]: any },
     callback: { (err: any, reply: object): void; (arg0: any, arg1: {}): void },
@@ -44,40 +45,40 @@ class Client {
       options.params = data;
       options.params.integration_key = config.integrationKey;
 
-      // If is Direct operation, change some parameters
       if (options.direct) {
         options.params.operation = "request";
-        const req = JSON.stringify(options.params);
+      }
+
+      if (options.requestType === "JSON") {
         await axios({
           url,
           headers: {
             "User-Agent": "EbanxTS Direct",
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
           },
           method,
-          data: req,
+          data: options.params,
         })
           .then(response => {
             return callback(null, response.data);
           })
           .catch(error => {
-            return callback(error.data, {});
+            throw error.data;
           });
-      } else {
+      }
+      if (options.requestType === "QUERY") {
         await axios({
-          url,
+          baseURL: `${url}?${qs.stringify(options.params)}`,
           headers: {
             "User-Agent": "EbanxTS Module",
-            "Content-Type": "application/x-www-form-urlencoded",
           },
           method,
-          params: qs.stringify(options.params),
         })
           .then(response => {
             return callback(null, response.data);
           })
           .catch(error => {
-            return callback(error.data, {});
+            throw error;
           });
       }
     }

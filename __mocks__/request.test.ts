@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx from "../src";
+import ebanx, { Request } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const request = {
+const request: Request = {
   name: "carlos test",
   email: "carlos@test.com",
   country: "br",
@@ -11,6 +11,7 @@ const request = {
   merchant_payment_code: "123141dafefesf",
   currency_code: "BRL",
   amount: 423.0,
+  due_date: "05/05/2020",
 };
 
 describe("Request Operation With Hash", () => {

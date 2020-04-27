@@ -4,8 +4,9 @@
 
 import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
+import * as models from "../interfaces";
 
-export const exchange = async (params: { [x: string]: any }, callback: (arg0: any, arg1: any) => void) => {
+export const exchange = async (params: models.Exchange, callback: (arg0: any, arg1: any) => void) => {
   const method = "GET";
   const uri = "ws/exchange";
 
@@ -15,12 +16,10 @@ export const exchange = async (params: { [x: string]: any }, callback: (arg0: an
   const config = {
     uri,
     method,
+    requestType: "QUERY",
   };
 
-  await client.send(config, params, (err: any, reply: any) => {
-    if (err) {
-      return callback(err, null);
-    }
+  await client.send(config, params, (_err: any, reply: any) => {
     return callback(null, reply);
   });
 };

@@ -54,11 +54,11 @@ const eb = new ebanxTs("1231000", true, true);
 #Examples:
 
 ```Typescript
-import ebanxTs from "ebanx-ts";
+import ebanxTs, { Direct } from "ebanx-ts";
 
 const eb = new ebanxTs("integration_key", true, true);
 
-const direct: object = {
+const direct: Direct = {
   payment: {
 		name: "Juan Garcia",
 		email: "juangarciamexico@example.com",
@@ -71,7 +71,8 @@ const direct: object = {
 		phone_number: "0405777687",
 		payment_type_code: "visa",
 		merchant_payment_code: "949284c1474",
-		currency_code: "MXN",
+    currency_code: "MXN",
+    instalments: 1,
 		amount_total: "100",
 		creditcard: {
 			card_number: "4111111111111111",
@@ -94,10 +95,11 @@ eb.direct(
 
 ## Changelog
 
-- **1.1.0**: Added querystring for GET methods
-- **1.0.3**: Asynchronous methods
-- **1.0.2**: Added Axios (Removed deprecated **request**)
-- **1.0.0**: Released
-- **0.1.2**: ES5 to ES6
+- **1.1.1**: Added FxToken, GetBankList, SetCVV operations and interfaces for every operation.
+- **1.1.0**: Added querystring for GET methods.
+- **1.0.3**: Asynchronous methods.
+- **1.0.2**: Added Axios (Removed deprecated **request**).
+- **1.0.0**: Released.
+- **0.1.2**: ES5 to ES6.
 - **0.1.0**: Beta release (Added **mocks** and minor fixes).
 - **0.0.3**: Pre-release.

@@ -1,14 +1,15 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx from "../src";
+import ebanx, { Token } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const creditcard = {
+const creditcard: Token = {
+  country: "br",
   payment_type_code: "visa",
   creditcard: {
     card_number: "4111111111111111",
     card_name: "Jose da Silva",
-    card_due_date: "10/2018",
+    card_due_date: "10/2021",
     card_cvv: "123",
   },
 };

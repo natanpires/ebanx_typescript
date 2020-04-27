@@ -1,8 +1,8 @@
 import { expect, should } from "chai";
 import "mocha";
-import ebanx from "../src";
+import ebanx, { Direct, Query } from "../src";
 
-const hash = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
+const hash: Query = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
 
 describe("HTTP Client test", () => {
   const eb = new ebanx("integration_key", true, false);
@@ -24,7 +24,7 @@ describe("HTTP Client test", () => {
   });
 
   it("Should test direct method", (done: () => void) => {
-    const direct = {
+    const direct: Direct = {
       payment: {
         name: "carlos test",
         email: "carlos@test.com",
@@ -37,10 +37,17 @@ describe("HTTP Client test", () => {
         zipcode: "82530000",
         country: "br",
         phone_number: "32329913",
-        payment_type_code: "itau",
+        payment_type_code: "visa",
         merchant_payment_code: "123141dafefesf",
         currency_code: "BRL",
+        instalments: 1,
         amount_total: 423.0,
+        creditcard: {
+          card_number: "4111111111111111",
+          card_name: "Jose da Silva",
+          card_due_date: "10/2018",
+          card_cvv: "123",
+        },
       },
     };
 

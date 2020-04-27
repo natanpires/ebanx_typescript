@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx from "../src";
+import ebanx, { Zipcode } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const zipcode = { zipcode: "82530000" };
+const zipcode: Zipcode = { zipcode: "82530000" };
 
 describe("Zipcode Operation", () => {
   eb.zipcode(zipcode, (_err, reply) => {

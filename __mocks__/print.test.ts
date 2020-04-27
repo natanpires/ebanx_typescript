@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx from "../src";
+import ebanx, { Print } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const hash = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
+const hash: Print = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
 
 describe("Print Operation", () => {
   eb.print(hash, (_err, reply) => {

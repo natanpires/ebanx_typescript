@@ -4,11 +4,9 @@
 
 import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
+import * as models from "../interfaces";
 
-export const direct = async (
-  params: { [x: string]: any; payment?: object },
-  callback: (arg0: any, arg1: any) => void,
-) => {
+export const direct = async (params: models.Direct, callback: (arg0: any, arg1: any) => void) => {
   const method = "POST";
   const uri = "ws/direct";
 
@@ -23,13 +21,11 @@ export const direct = async (
   const config = {
     uri,
     method,
+    requestType: "JSON",
     direct: true,
   };
 
-  await client.send(config, params, (err: any, reply: any) => {
-    if (err) {
-      callback(err, null);
-    }
+  await client.send(config, params, (_err: any, reply: any) => {
     return callback(null, reply);
   });
 };

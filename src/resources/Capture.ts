@@ -4,8 +4,9 @@
 
 import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
+import * as models from "../interfaces";
 
-export const capture = async (params: any, callback: any) => {
+export const capture = async (params: models.Capture, callback: any) => {
   const method = "GET";
   const uri = "ws/capture";
 
@@ -15,12 +16,10 @@ export const capture = async (params: any, callback: any) => {
   const config = {
     uri,
     method,
+    requestType: "JSON",
   };
 
-  await client.send(config, params, (err: any, reply: any) => {
-    if (err) {
-      return callback(err, null);
-    }
+  await client.send(config, params, (_err: any, reply: any) => {
     return callback(null, reply);
   });
 };

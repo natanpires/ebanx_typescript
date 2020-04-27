@@ -4,6 +4,9 @@ import ebanx from "../src";
 import { default as utils } from "../src/Config";
 
 const eb = new ebanx("integration_key", true, true);
+eb.setKey("integration_key");
+eb.setTestMode(true);
+eb.setHttp(true);
 
 describe("Configuration", () => {
   it("Integration Key should be setted", (done: () => void) => {

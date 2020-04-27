@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx from "../src";
+import ebanx, { Cancel } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const hash = { hash: "1234" };
+const hash: Cancel = { hash: "1234" };
 
 describe("Cancel Operation", () => {
   eb.cancel(hash, (_err, reply) => {
