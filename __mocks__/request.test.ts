@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { Request } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const request: Request = {
+const request: models.Request = {
   name: "carlos test",
   email: "carlos@test.com",
   country: "br",

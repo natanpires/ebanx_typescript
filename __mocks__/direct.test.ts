@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { Direct } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const direct: Direct = {
+const direct: models.Direct = {
   payment: {
     name: "carlos test",
     email: "carlos@test.com",

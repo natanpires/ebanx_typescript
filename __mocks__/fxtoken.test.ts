@@ -1,10 +1,10 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { FxToken } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
 
-const fxtoken: FxToken = {
+const fxtoken: models.FxToken = {
   country: "br",
   currency_from: "EUR",
   currency_to: "BRL",

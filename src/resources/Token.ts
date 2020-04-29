@@ -10,6 +10,7 @@ export const token = async (params: models.Token): Promise<object> => {
   const uri = "ws/token";
 
   validator.params = params;
+  validator.validatePresence("country");
   validator.validatePresence("payment_type_code");
   validator.validatePresence("creditcard.card_number");
   validator.validatePresence("creditcard.card_name");

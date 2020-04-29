@@ -1,10 +1,10 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { Query } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const hash: Query = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
-const merchant_payment_code: Query = { merchant_payment_code: "1428955597" };
+const hash: models.Query = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
+const merchant_payment_code: models.Query = { merchant_payment_code: "1428955597" };
 
 describe("Query Operation With Hash", async () => {
   const reply = await eb.query(hash);

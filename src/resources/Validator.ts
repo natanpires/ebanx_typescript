@@ -12,14 +12,17 @@ class Validator {
       const params = this.params;
 
       if (levels === 4) {
+        /*istanbul ignore next*/
         if (params[keys[0]][keys[1]][keys[2]][keys[3]]) {
           return params[keys[0]][keys[1]][keys[2]][keys[3]];
         }
       } else if (levels === 3) {
+        /*istanbul ignore next*/
         if (params[keys[0]][keys[1]][keys[2]]) {
           return params[keys[0]][keys[1]][keys[2]];
         }
       } else {
+        /*istanbul ignore next*/
         if (params[keys[0]][keys[1]]) {
           return params[keys[0]][keys[1]];
         }

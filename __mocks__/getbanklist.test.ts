@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { GetBankList } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const getBankList: GetBankList = {
+const getBankList: models.GetBankList = {
   operation: "request",
   country: "br",
 };

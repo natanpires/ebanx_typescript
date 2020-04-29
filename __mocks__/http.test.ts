@@ -1,11 +1,11 @@
 import { expect, should } from "chai";
 import "mocha";
-import ebanx, { Direct, Zipcode, Query } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const hash: Query = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
-const zipcode: Zipcode = { zipcode: "80000100" };
-const direct: Direct = {
+const hash: models.Query = { hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f" };
+const zipcode: models.Zipcode = { zipcode: "80000100" };
+const direct: models.Direct = {
   payment: {
     name: "carlos test",
     email: "carlos@test.com",

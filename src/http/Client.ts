@@ -60,7 +60,7 @@ class Client {
           data: options.params,
         });
         return data;
-      } catch (error) {
+      } catch (error) /*istanbul ignore next*/ {
         throw error;
       }
     } else {
@@ -73,7 +73,7 @@ class Client {
           method,
         });
         return data;
-      } catch (error) {
+      } catch (error) /*istanbul ignore next*/ {
         throw error;
       }
     }

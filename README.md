@@ -54,11 +54,12 @@ const eb = new ebanxTs("1231000", true, true);
 #Examples:
 
 ```Typescript
-import ebanxTs, { Direct } from "ebanx-ts";
+// import models as following to use the interfaces
+import ebanxTs, { models } from "ebanx-ts";
 
 const eb = new ebanxTs("integration_key", true, true);
 
-const direct: Direct = {
+const direct: models.Direct = {
   payment: {
 		name: "Juan Garcia",
 		email: "juangarciamexico@example.com",
@@ -73,7 +74,7 @@ const direct: Direct = {
 		merchant_payment_code: "949284c1474",
     currency_code: "MXN",
     instalments: 1,
-		amount_total: 100,
+    amount_total: 100,
 		creditcard: {
 			card_number: "4111111111111111",
 			card_name: "Juan Garcia",
@@ -83,7 +84,7 @@ const direct: Direct = {
 	}
 };
 
-// Create direct payment
+// Create direct payment - Inside of an async function.
 const payment = async () => {
   const data = await eb.direct(direct);
   console.log(data);
@@ -91,16 +92,19 @@ const payment = async () => {
 
 payment();
 
+// Without a function
+eb.direct(direct)
+                .then((res: any) => console.log(res))
+                .catch((err: any) => console.log(err));
+
 ```
 
 ## Changelog
 
+- **1.2.0**: Interfaces are now exported as models. (mandatory usage)
 - **1.1.2**: Code refactored.
 - **1.1.1**: Added FxToken, GetBankList, SetCVV operations and interfaces for every operation.
 - **1.1.0**: Added querystring for GET methods.
 - **1.0.3**: Asynchronous methods.
 - **1.0.2**: Added Axios (Removed deprecated **request**).
 - **1.0.0**: Released.
-- **0.1.2**: ES5 to ES6.
-- **0.1.0**: Beta release (Added **mocks** and minor fixes).
-- **0.0.3**: Pre-release.

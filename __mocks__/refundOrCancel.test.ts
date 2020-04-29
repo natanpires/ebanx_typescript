@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { RefundOrCancel } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const refund: RefundOrCancel = {
+const refund: models.RefundOrCancel = {
   hash: "552c21d21c55dd815c92ca69d937603913f1e69153916b0f",
   description: "Lorem ipsum dolor sit amet.",
 };

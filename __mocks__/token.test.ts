@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { Token } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const creditcard: Token = {
+const creditcard: models.Token = {
   country: "br",
   payment_type_code: "visa",
   creditcard: {

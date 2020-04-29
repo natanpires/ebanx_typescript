@@ -1,7 +1,7 @@
 /* Copyright 2020 Natan Pires de Souza */
-export type CurrencyCodes = "BRL" | "EUR" | "MXN" | "PEN" | "USD" | "CLP" | "COP" | "ARS" | "BOB";
+type CurrencyCodes = "BRL" | "EUR" | "MXN" | "PEN" | "USD" | "CLP" | "COP" | "ARS" | "BOB";
 
-export type PaymentTypeCodes =
+type PaymentTypeCodes =
   | "amex"
   | "baloto"
   | "bancodobrasil"
@@ -36,7 +36,7 @@ export type PaymentTypeCodes =
   | "visa"
   | "webpay";
 
-export type Countries = "bo" | "br" | "cl" | "co" | "mx" | "pe" | "ar" | "ec";
+type Countries = "bo" | "br" | "cl" | "co" | "mx" | "pe" | "ar" | "ec";
 
 export interface Creditcard {
   card_number: string;

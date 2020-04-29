@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import "mocha";
-import ebanx, { Exchange } from "../src";
+import ebanx, { models } from "../src";
 
 const eb = new ebanx("integration_key", true, false);
-const currency: Exchange = { currency_code: "USD", currency_base: "BRL" };
+const currency: models.Exchange = { currency_code: "USD", currency_base: "BRL" };
 
 describe("Exchange Operation", async () => {
   const reply = await eb.exchange(currency);
