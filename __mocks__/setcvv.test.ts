@@ -9,11 +9,11 @@ const setcvv: SetCVV = {
   card_cvv: "123",
 };
 
-describe("SetCVV", () => {
-  eb.setcvv(setcvv, (_err, reply) => {
-    it("Should return object", (done: () => void) => {
-      expect(reply).to.be.an("object");
-      done();
-    });
+describe("SetCVV", async () => {
+  const reply = await eb.setcvv(setcvv);
+
+  it("Should return object", (done: () => void) => {
+    expect(reply).to.be.an("object");
+    done();
   });
 });

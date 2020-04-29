@@ -73,7 +73,7 @@ const direct: Direct = {
 		merchant_payment_code: "949284c1474",
     currency_code: "MXN",
     instalments: 1,
-		amount_total: "100",
+		amount_total: 100,
 		creditcard: {
 			card_number: "4111111111111111",
 			card_name: "Juan Garcia",
@@ -84,17 +84,18 @@ const direct: Direct = {
 };
 
 // Create direct payment
-eb.direct(
-  direct,
-  (_err, response) => {
-    console.log(response);
-  }
-);
+const payment = async () => {
+  const data = await eb.direct(direct);
+  console.log(data);
+};
+
+payment();
 
 ```
 
 ## Changelog
 
+- **1.1.2**: Code refactored.
 - **1.1.1**: Added FxToken, GetBankList, SetCVV operations and interfaces for every operation.
 - **1.1.0**: Added querystring for GET methods.
 - **1.0.3**: Asynchronous methods.

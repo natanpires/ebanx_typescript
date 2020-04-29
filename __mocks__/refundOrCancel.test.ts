@@ -8,31 +8,31 @@ const refund: RefundOrCancel = {
   description: "Lorem ipsum dolor sit amet.",
 };
 
-describe("RefundOrCancel Operation", () => {
-  eb.refundOrCancel(refund, (_err, reply) => {
-    it("Should return object", (done: () => void) => {
-      expect(reply).to.be.an("object");
-      done();
-    });
+describe("RefundOrCancel Operation", async () => {
+  const reply = await eb.refundOrCancel(refund);
 
-    it("Method should be POST", (done: () => void) => {
-      expect(reply.method).to.be.equal("POST");
-      done();
-    });
+  it("Should return object", (done: () => void) => {
+    expect(reply).to.be.an("object");
+    done();
+  });
 
-    it("URI should point to ws/refundOrCancel", (done: () => void) => {
-      expect(reply.uri).to.be.equal("ws/refundOrCancel");
-      done();
-    });
+  it("Method should be POST", (done: () => void) => {
+    expect(reply.method).to.be.equal("POST");
+    done();
+  });
 
-    it("Params should have hash", (done: () => void) => {
-      expect(reply).to.have.property("hash");
-      done();
-    });
+  it("URI should point to ws/refundOrCancel", (done: () => void) => {
+    expect(reply.uri).to.be.equal("ws/refundOrCancel");
+    done();
+  });
 
-    it("Params should have description", (done: () => void) => {
-      expect(reply.description).to.be.equal(refund.description);
-      done();
-    });
+  it("Params should have hash", (done: () => void) => {
+    expect(reply).to.have.property("hash");
+    done();
+  });
+
+  it("Params should have description", (done: () => void) => {
+    expect(reply.description).to.be.equal(refund.description);
+    done();
   });
 });

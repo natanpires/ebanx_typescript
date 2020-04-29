@@ -8,11 +8,11 @@ const getBankList: GetBankList = {
   country: "br",
 };
 
-describe("GetBankList Operation", () => {
-  eb.getbanklist(getBankList, (_err, reply) => {
-    it("Should return object", (done: () => void) => {
-      expect(reply).to.be.an("object");
-      done();
-    });
+describe("GetBankList Operation", async () => {
+  const reply = await eb.getbanklist(getBankList);
+
+  it("Should return object", (done: () => void) => {
+    expect(reply).to.be.an("object");
+    done();
   });
 });

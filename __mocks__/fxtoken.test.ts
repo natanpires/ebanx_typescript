@@ -10,11 +10,10 @@ const fxtoken: FxToken = {
   currency_to: "BRL",
 };
 
-describe("FxToken Operation", () => {
-  eb.fxtoken(fxtoken, (_err, reply) => {
-    it("Should return object", (done: () => void) => {
-      expect(reply).to.be.an("object");
-      done();
-    });
+describe("FxToken Operation", async () => {
+  const reply = await eb.fxtoken(fxtoken);
+  it("Should return object", (done: () => void) => {
+    expect(reply).to.be.an("object");
+    done();
   });
 });

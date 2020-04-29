@@ -1,3 +1,4 @@
+/* Copyright 2020 Natan Pires de Souza */
 export type CurrencyCodes = "BRL" | "EUR" | "MXN" | "PEN" | "USD" | "CLP" | "COP" | "ARS" | "BOB";
 
 export type PaymentTypeCodes =

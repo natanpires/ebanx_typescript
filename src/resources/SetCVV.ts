@@ -5,7 +5,7 @@ import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
 import * as models from "../interfaces";
 
-export const setcvv = async (params: models.SetCVV, callback: (arg0: any, arg1: any) => void) => {
+export const setcvv = async (params: models.SetCVV): Promise<object> => {
   const method = "POST";
   const uri = "ws/token/setCVV";
 
@@ -19,7 +19,5 @@ export const setcvv = async (params: models.SetCVV, callback: (arg0: any, arg1: 
     requestType: "JSON",
   };
 
-  await client.send(config, params, (_err: any, reply: any) => {
-    return callback(null, reply);
-  });
+  return await client.send(config, params);
 };

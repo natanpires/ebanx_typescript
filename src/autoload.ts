@@ -1,4 +1,3 @@
-/* Copyright 2015 EBANX */
 /* Copyright 2020 Natan Pires de Souza */
 "use strict";
 
@@ -42,63 +41,63 @@ export default class Ebanx {
   };
 
   // Autoloading functions
-  cancel = async (params: models.Cancel, callback: (arg0: any, arg1: any) => void) => {
-    return await cancel(params, callback);
+  cancel = async (params: models.Cancel): Promise<any> => {
+    return await cancel(params);
   };
 
-  capture = async (params: models.Capture, callback: any) => {
-    return await capture(params, callback);
+  capture = async (params: models.Capture): Promise<any> => {
+    return await capture(params);
   };
 
-  direct = async (params: models.Direct, callback: (arg0: any, arg1: any) => void) => {
-    return await direct(params, callback);
+  direct = async (params: models.Direct): Promise<any> => {
+    return await direct(params);
   };
 
-  documentBalance = async (params: models.DocumentBalance, callback: (arg0: any, arg1: any) => void) => {
-    return await documentBalance(params, callback);
+  documentBalance = async (params: models.DocumentBalance): Promise<any> => {
+    return await documentBalance(params);
   };
 
-  exchange = async (params: models.Exchange, callback: (arg0: any, arg1: any) => void) => {
-    return await exchange(params, callback);
+  exchange = async (params: models.Exchange): Promise<any> => {
+    return await exchange(params);
   };
 
-  print = async (params: models.Print, callback: (arg0: any, arg1: any) => void) => {
-    return await print(params, callback);
+  print = async (params: models.Print): Promise<any> => {
+    return await print(params);
   };
 
-  query = async (params: models.Query, callback: (arg0: any, arg1: any) => void) => {
-    return await query(params, callback);
+  query = async (params: models.Query): Promise<any> => {
+    return await query(params);
   };
 
-  refund = async (params: models.Refund, callback: (arg0: any, arg1: any) => void) => {
-    return await refund(params, callback);
+  refund = async (params: models.Refund): Promise<any> => {
+    return await refund(params);
   };
 
-  refundOrCancel = async (params: models.RefundOrCancel, callback: (arg0: any, arg1: any) => void) => {
-    return await refundOrCancel(params, callback);
+  refundOrCancel = async (params: models.RefundOrCancel): Promise<any> => {
+    return await refundOrCancel(params);
   };
 
-  request = async (params: models.Request, callback: (arg0: any, arg1: any) => void) => {
-    return await request(params, callback);
+  request = async (params: models.Request): Promise<any> => {
+    return await request(params);
   };
 
-  token = async (params: models.Token, callback: (arg0: any, arg1: any) => void) => {
-    return await token(params, callback);
+  token = async (params: models.Token): Promise<any> => {
+    return await token(params);
   };
 
-  setcvv = async (params: models.SetCVV, callback: (arg0: any, arg1: any) => void) => {
-    return await setcvv(params, callback);
+  setcvv = async (params: models.SetCVV): Promise<any> => {
+    return await setcvv(params);
   };
 
-  fxtoken = async (params: models.FxToken, callback: (arg0: any, arg1: any) => void) => {
-    return await fxtoken(params, callback);
+  fxtoken = async (params: models.FxToken): Promise<any> => {
+    return await fxtoken(params);
   };
 
-  getbanklist = async (params: models.GetBankList, callback: (arg0: any, arg1: any) => void) => {
-    return await getbanklist(params, callback);
+  getbanklist = async (params: models.GetBankList): Promise<any> => {
+    return await getbanklist(params);
   };
 
-  zipcode = async (params: models.Zipcode, callback: (arg0: any, arg1: any) => void) => {
-    return await zipcode(params, callback);
+  zipcode = async (params: models.Zipcode): Promise<any> => {
+    return await zipcode(params);
   };
 }

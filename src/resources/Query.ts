@@ -1,4 +1,3 @@
-/* Copyright 2015 EBANX */
 /* Copyright 2020 Natan Pires de Souza */
 "use strict";
 
@@ -6,7 +5,7 @@ import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
 import * as models from "../interfaces";
 
-export const query = async (params: models.Query, callback: (arg0: any, arg1: any) => void) => {
+export const query = async (params: models.Query): Promise<object> => {
   const method = "GET";
   const uri = "ws/query";
 
@@ -19,7 +18,5 @@ export const query = async (params: models.Query, callback: (arg0: any, arg1: an
     requestType: "JSON",
   };
 
-  await client.send(config, params, (_err: any, reply: any) => {
-    return callback(null, reply);
-  });
+  return await client.send(config, params);
 };

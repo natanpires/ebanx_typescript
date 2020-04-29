@@ -14,56 +14,56 @@ const request: Request = {
   due_date: "05/05/2020",
 };
 
-describe("Request Operation With Hash", () => {
-  eb.request(request, (_err, reply) => {
-    it("Should return object", (done: () => void) => {
-      expect(reply).to.be.an("object");
-      done();
-    });
+describe("Request Operation With Hash", async () => {
+  const reply = await eb.request(request);
 
-    it("Method should be POST", (done: () => void) => {
-      expect(reply.method).to.be.equal("POST");
-      done();
-    });
+  it("Should return object", (done: () => void) => {
+    expect(reply).to.be.an("object");
+    done();
+  });
 
-    it("URI should point to ws/request", (done: () => void) => {
-      expect(reply.uri).to.be.equal("ws/request");
-      done();
-    });
+  it("Method should be POST", (done: () => void) => {
+    expect(reply.method).to.be.equal("POST");
+    done();
+  });
 
-    it("Params should have name", (done: () => void) => {
-      expect(reply).to.have.property("name");
-      done();
-    });
+  it("URI should point to ws/request", (done: () => void) => {
+    expect(reply.uri).to.be.equal("ws/request");
+    done();
+  });
 
-    it("Params should have email", (done: () => void) => {
-      expect(reply).to.have.property("email");
-      done();
-    });
+  it("Params should have name", (done: () => void) => {
+    expect(reply).to.have.property("name");
+    done();
+  });
 
-    it("Params should have country", (done: () => void) => {
-      expect(reply).to.have.property("country");
-      done();
-    });
+  it("Params should have email", (done: () => void) => {
+    expect(reply).to.have.property("email");
+    done();
+  });
 
-    it("Params should have payment_type_code", (done: () => void) => {
-      expect(reply).to.have.property("payment_type_code");
-      done();
-    });
+  it("Params should have country", (done: () => void) => {
+    expect(reply).to.have.property("country");
+    done();
+  });
 
-    it("Params should have merchant_payment_code", (done: () => void) => {
-      expect(reply).to.have.property("merchant_payment_code");
-      done();
-    });
+  it("Params should have payment_type_code", (done: () => void) => {
+    expect(reply).to.have.property("payment_type_code");
+    done();
+  });
 
-    it("Params should have currency_code", (done: () => void) => {
-      expect(reply).to.have.property("currency_code");
-      done();
-    });
+  it("Params should have merchant_payment_code", (done: () => void) => {
+    expect(reply).to.have.property("merchant_payment_code");
+    done();
+  });
 
-    it("Params should have amount", (done: () => void) => {
-      expect(reply).to.have.property("amount");
-      done();
-    });
+  it("Params should have currency_code", (done: () => void) => {
+    expect(reply).to.have.property("currency_code");
+    done();
+  });
+
+  it("Params should have amount", (done: () => void) => {
+    expect(reply).to.have.property("amount");
+    done();
   });
 });

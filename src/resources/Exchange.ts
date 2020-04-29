@@ -1,4 +1,3 @@
-/* Copyright 2015 EBANX */
 /* Copyright 2020 Natan Pires de Souza */
 "use strict";
 
@@ -6,7 +5,7 @@ import { default as client } from "../http/Client";
 import { default as validator } from "./Validator";
 import * as models from "../interfaces";
 
-export const exchange = async (params: models.Exchange, callback: (arg0: any, arg1: any) => void) => {
+export const exchange = async (params: models.Exchange): Promise<object> => {
   const method = "GET";
   const uri = "ws/exchange";
 
@@ -19,7 +18,5 @@ export const exchange = async (params: models.Exchange, callback: (arg0: any, ar
     requestType: "QUERY",
   };
 
-  await client.send(config, params, (_err: any, reply: any) => {
-    return callback(null, reply);
-  });
+  return await client.send(config, params);
 };

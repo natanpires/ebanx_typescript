@@ -30,11 +30,10 @@ const direct: Direct = {
   },
 };
 
-describe("Direct Operation Credit Card", () => {
-  eb.direct(direct, (_err, reply) => {
-    it("Should test creditcard object", (done: () => void) => {
-      expect(reply.payment).to.have.property("creditcard");
-      done();
-    });
+describe("Direct Operation Credit Card", async () => {
+  const reply = await eb.direct(direct);
+  it("Should test creditcard object", (done: () => void) => {
+    expect(reply.payment).to.have.property("creditcard");
+    done();
   });
 });

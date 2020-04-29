@@ -1,4 +1,3 @@
-/* Copyright 2015 EBANX */
 /* Copyright 2020 Natan Pires de Souza */
 "use strict";
 /*
@@ -24,7 +23,6 @@ class Client {
       direct?: boolean;
     },
     params: { [x: string]: any },
-    callback: { (err: any, reply: object): void; (arg0: any, arg1: {}): void },
   ) {
     const url = config.getEndPoint() + options.uri;
     const method = options.method;
@@ -38,19 +36,21 @@ class Client {
       for (var i in options) {
         construct(data, i, options[i]);
       }
-      callback(null, data);
-    } else {
-      Validator.validateConfig(config);
+      return data;
+    }
 
-      options.params = data;
-      options.params.integration_key = config.integrationKey;
+    Validator.validateConfig(config);
 
-      if (options.direct) {
-        options.params.operation = "request";
-      }
+    options.params = data;
+    options.params.integration_key = config.integrationKey;
 
-      if (options.requestType === "JSON") {
-        await axios({
+    if (options.direct) {
+      options.params.operation = "request";
+    }
+
+    if (options.requestType === "JSON") {
+      try {
+        const { data } = await axios({
           url,
           headers: {
             "User-Agent": "EbanxTS Direct",
@@ -58,28 +58,23 @@ class Client {
           },
           method,
           data: options.params,
-        })
-          .then(response => {
-            return callback(null, response.data);
-          })
-          .catch(error => {
-            throw error.data;
-          });
+        });
+        return data;
+      } catch (error) {
+        throw error;
       }
-      if (options.requestType === "QUERY") {
-        await axios({
+    } else {
+      try {
+        const { data } = await axios({
           baseURL: `${url}?${qs.stringify(options.params)}`,
           headers: {
             "User-Agent": "EbanxTS Module",
           },
           method,
-        })
-          .then(response => {
-            return callback(null, response.data);
-          })
-          .catch(error => {
-            throw error;
-          });
+        });
+        return data;
+      } catch (error) {
+        throw error;
       }
     }
   }
