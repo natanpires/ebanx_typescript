@@ -51,10 +51,9 @@ const eb = new ebanxTs("1231000", true, true);
     * eb.setTestMode()
     * eb.setHttp()
 
-#Examples:
+## Examples:
 
 ```Typescript
-// import models as following to use the interfaces
 import ebanxTs, { models } from "ebanx-ts";
 
 const eb = new ebanxTs("integration_key", true, true);
@@ -72,9 +71,9 @@ const direct: models.Direct = {
 		phone_number: "0405777687",
 		payment_type_code: "visa",
 		merchant_payment_code: "949284c1474",
-    currency_code: "MXN",
-    instalments: 1,
-    amount_total: 100,
+    		currency_code: "MXN",
+   		instalments: 1,
+    		amount_total: 100,
 		creditcard: {
 			card_number: "4111111111111111",
 			card_name: "Juan Garcia",
@@ -84,15 +83,13 @@ const direct: models.Direct = {
 	}
 };
 
-// Create direct payment - Inside of an async function.
+/* METHOD 01 */
 const payment = async () => {
   const data = await eb.direct(direct);
   console.log(data);
 };
 
-payment();
-
-// Without a function
+/* METHOD 02 */
 eb.direct(direct)
                 .then((res: any) => console.log(res))
                 .catch((err: any) => console.log(err));
