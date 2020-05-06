@@ -2,8 +2,8 @@
   "name": "ebanx-ts",
   "license": "BSD-3-Clause",
   "author": "Natan Pires de Souza <partisansouza@gmail.com> (https://wisereducacao.com/)",
-  "version": "1.1.2",
-  "description": "Migration of Ebanx NodeJs lib to Typescript and also upgraded.",
+  "version": "1.2.1",
+  "description": "Remake of Ebanx NodeJs library. (Added support to TS)",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "private": false,
@@ -55,7 +55,9 @@
   },
   "keywords": [
     "ebanx",
-    "typescript"
+    "typescript",
+    "payment",
+    "gateway"
   ],
   "files": [
     "lib/**/*"

@@ -2,7 +2,7 @@ import { expect } from "chai";
 import "mocha";
 import ebanx, { models } from "../src";
 
-const eb = new ebanx("integration_key", true, false);
+const eb = new ebanx("***REMOVED***", true, true);
 const zipcode: models.Zipcode = { zipcode: "82530000" };
 
 describe("Zipcode Operation", async () => {

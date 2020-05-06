@@ -1,11 +1,11 @@
-import ebanx, { models } from "ebanx-ts";
+import ebanx, { models } from "./lib/";
 
-const eb = new ebanx("your_integration_key", true, true);
+const eb = new ebanx("integration_key", true, true);
 
-const zipcode: models.Zipcode = {
-  zipcode: "80000100",
+const cardbin: models.CardBin = {
+  country: "BR",
 };
 
-eb.zipcode(zipcode)
+eb.cardbin(cardbin)
   .then((res: any) => console.log(res))
   .catch((err: any) => console.log(err));

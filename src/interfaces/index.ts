@@ -38,18 +38,18 @@ type PaymentTypeCodes =
 
 type Countries = "bo" | "br" | "cl" | "co" | "mx" | "pe" | "ar" | "ec";
 
-export interface Creditcard {
+interface Creditcard {
   card_number: string;
   card_name: string;
   card_due_date: string;
   card_cvv: string;
 }
 
-export interface Tokencard {
+interface Tokencard {
   token: string;
 }
 
-export interface Direct {
+interface Direct {
   payment: {
     name: string;
     email: string;
@@ -71,13 +71,13 @@ export interface Direct {
   };
 }
 
-export interface Token {
+interface Token {
   country: Countries;
   payment_type_code: PaymentTypeCodes;
   creditcard: Creditcard;
 }
 
-export interface Refund {
+interface Refund {
   hash?: string;
   description: string;
   amount: string;
@@ -86,41 +86,45 @@ export interface Refund {
   operation: "request" | "cancel";
 }
 
-export interface RefundOrCancel {
+interface RefundOrCancel {
   hash?: string;
   description: string;
   merchant_refund_code?: string;
 }
 
-export interface Exchange {
+interface Exchange {
   currency_code: string;
   currency_base: string;
 }
 
-export interface DocumentBalance {
+interface DocumentBalance {
   document: string;
   currency_code: string;
 }
 
-export interface Zipcode {
+interface Zipcode {
   zipcode: string;
 }
 
-export interface Cancel {
+interface CardBin {
+  country: "BR" | "MX" | "CO" | "CL" | "AR" | "PE";
+}
+
+interface Cancel {
   hash: string;
 }
 
-export interface Print {
+interface Print {
   hash: string;
   format?: string;
 }
 
-export interface Query {
+interface Query {
   hash?: string;
   merchant_payment_code?: string;
 }
 
-export interface Request {
+interface Request {
   name: string;
   email: string;
   currency_code: CurrencyCodes;
@@ -147,25 +151,44 @@ export interface Request {
   user_value_5?: string;
 }
 
-export interface Capture {
+interface Capture {
   hash?: string;
   merchant_payment_code?: string;
   merchant_capture_code?: string;
   amount?: number;
 }
 
-export interface SetCVV {
+interface SetCVV {
   token: string;
   card_cvv: string;
 }
 
-export interface GetBankList {
+interface GetBankList {
   operation: "request";
   country: Countries;
 }
 
-export interface FxToken {
+interface FxToken {
   country: Countries;
   currency_from: CurrencyCodes;
   currency_to: CurrencyCodes;
 }
+
+export {
+  FxToken,
+  GetBankList,
+  SetCVV,
+  Capture,
+  Request,
+  Query,
+  Print,
+  Cancel,
+  CardBin,
+  Zipcode,
+  DocumentBalance,
+  Exchange,
+  Refund,
+  RefundOrCancel,
+  Token,
+  Direct,
+};

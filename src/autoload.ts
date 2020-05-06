@@ -17,6 +17,7 @@ import { zipcode } from "./resources/Zipcode";
 import { setcvv } from "./resources/SetCVV";
 import { fxtoken } from "./resources/FxToken";
 import { getbanklist } from "./resources/GetBankList";
+import { cardbin } from "./resources/CardBin";
 import * as models from "./interfaces";
 
 export default class Ebanx {
@@ -99,5 +100,9 @@ export default class Ebanx {
 
   zipcode = async (params: models.Zipcode): Promise<any> => {
     return await zipcode(params);
+  };
+
+  cardbin = async (params: models.CardBin): Promise<any> => {
+    return await cardbin(params);
   };
 }
