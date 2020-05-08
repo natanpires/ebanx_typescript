@@ -191,4 +191,9 @@ export {
   RefundOrCancel,
   Token,
   Direct,
+  Tokencard,
+  Creditcard,
+  Countries,
+  PaymentTypeCodes,
+  CurrencyCodes,
 };

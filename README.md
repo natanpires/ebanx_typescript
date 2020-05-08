@@ -98,6 +98,7 @@ eb.direct(direct)
 
 ## Changelog
 
+- **1.2.2**: Fix export interfaces.
 - **1.2.1**: Added CardBin operation.
 - **1.2.0**: Interfaces are now exported as models. (mandatory usage)
 - **1.1.2**: Code refactored.
