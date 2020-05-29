@@ -71,9 +71,9 @@ const direct: models.Direct = {
 		phone_number: "0405777687",
 		payment_type_code: "visa",
 		merchant_payment_code: "949284c1474",
-    		currency_code: "MXN",
-   		instalments: 1,
-    		amount_total: 100,
+    currency_code: "MXN",
+   	instalments: 1,
+    amount_total: 100,
 		creditcard: {
 			card_number: "4111111111111111",
 			card_name: "Juan Garcia",
@@ -98,6 +98,7 @@ eb.direct(direct)
 
 ## Changelog
 
+- **1.2.3**: Added optional auto_capture into credit card interface.
 - **1.2.2**: Fix export interfaces.
 - **1.2.1**: Added CardBin operation.
 - **1.2.0**: Interfaces are now exported as models. (mandatory usage)

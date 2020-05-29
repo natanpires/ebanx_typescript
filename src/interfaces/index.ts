@@ -43,6 +43,7 @@ interface Creditcard {
   card_name: string;
   card_due_date: string;
   card_cvv: string;
+  auto_capture?: boolean;
 }
 
 interface Tokencard {
