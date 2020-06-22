@@ -1,9 +1,9 @@
-# EBANX Typescript module:
+# EBANX:
 
 [![Build Status](https://travis-ci.org/natanpires/ebanx_typescript.svg?branch=master)](https://travis-ci.org/natanpires/ebanx_typescript)
 [![codecov](https://codecov.io/gh/natanpires/ebanx_typescript/branch/master/graph/badge.svg)](https://codecov.io/gh/natanpires/ebanx_typescript)
 
-EBANX is the market leader in e-commerce payment solutions for International Merchants selling online to Brazil. This module enables you to integrate EBANX with Typescript.
+EBANX is the market leader in e-commerce payment solutions for International Merchants selling online to Brazil. This module enables you to integrate EBANX with Typescript compatibility.
 
 ## Installation
 
@@ -71,9 +71,9 @@ const direct: models.Direct = {
 		phone_number: "0405777687",
 		payment_type_code: "visa",
 		merchant_payment_code: "949284c1474",
-    currency_code: "MXN",
-   	instalments: 1,
-    amount_total: 100,
+		currency_code: "MXN",
+		instalments: 1,
+		amount_total: 100,
 		creditcard: {
 			card_number: "4111111111111111",
 			card_name: "Juan Garcia",
@@ -91,13 +91,14 @@ const payment = async () => {
 
 /* METHOD 02 */
 eb.direct(direct)
-                .then((res: any) => console.log(res))
-                .catch((err: any) => console.log(err));
+								.then((res: any) => console.log(res))
+								.catch((err: any) => console.log(err));
 
 ```
 
 ## Changelog
 
+- **1.2.4**: Added optional security parameters into direct payment interface.
 - **1.2.3**: Added optional auto_capture into credit card interface.
 - **1.2.2**: Fix export interfaces.
 - **1.2.1**: Added CardBin operation.

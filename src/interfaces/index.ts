@@ -52,6 +52,10 @@ interface Tokencard {
 
 interface Direct {
   payment: {
+    customer_ip?: string;
+    create_token?: boolean;
+    note?: string;
+    device_id?: string;
     name: string;
     email: string;
     birth_date?: string;
