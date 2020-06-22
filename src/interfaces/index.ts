@@ -50,7 +50,18 @@ interface Tokencard {
   token: string;
 }
 
+interface Item {
+  name: string;
+  description: string;
+  unit_price: number;
+  quantity: number;
+  type: string;
+}
+
 interface Direct {
+  mode?: string;
+  device_channel?: string;
+  metadata?: object | null;
   payment: {
     customer_ip?: string;
     create_token?: boolean;
@@ -72,6 +83,7 @@ interface Direct {
     currency_code: CurrencyCodes;
     instalments: number;
     amount_total: number;
+    items?: { [key: string]: Item };
     creditcard: Creditcard | Tokencard;
   };
 }
@@ -201,4 +213,5 @@ export {
   Countries,
   PaymentTypeCodes,
   CurrencyCodes,
+  Item,
 };

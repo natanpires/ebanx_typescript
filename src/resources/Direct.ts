@@ -17,6 +17,9 @@ export const direct = async (params: models.Direct): Promise<object> => {
   validator.validatePresence("email");
   validator.validatePresence("payment_type_code");
 
+  /*istanbul ignore next*/
+  params.mode ? params.mode : (params.mode = "full");
+
   const config = {
     uri,
     method,

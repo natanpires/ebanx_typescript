@@ -49,34 +49,36 @@ class Client {
     }
 
     if (options.requestType === "JSON") {
-      try {
-        const { data } = await axios({
-          url,
-          headers: {
-            "User-Agent": "EbanxTS Direct",
-            "Content-Type": "application/json",
+      return await axios({
+        url,
+        headers: {
+          "User-Agent": "EbanxTS Direct",
+          "Content-Type": "application/json",
+        },
+        method,
+        data: options.params,
+      })
+        .then(({ data }) => data)
+        .catch(
+          /*istanbul ignore next*/ (e) => {
+            throw e;
           },
-          method,
-          data: options.params,
-        });
-        return data;
-      } catch (error) /*istanbul ignore next*/ {
-        throw error;
-      }
-    } else {
-      try {
-        const { data } = await axios({
-          baseURL: `${url}?${qs.stringify(options.params)}`,
-          headers: {
-            "User-Agent": "EbanxTS Module",
-          },
-          method,
-        });
-        return data;
-      } catch (error) /*istanbul ignore next*/ {
-        throw error;
-      }
+        );
     }
+
+    return await axios({
+      baseURL: `${url}?${qs.stringify(options.params)}`,
+      headers: {
+        "User-Agent": "EbanxTS Module",
+      },
+      method,
+    })
+      .then(({ data }) => data)
+      .catch(
+        /*istanbul ignore next*/ (e) => {
+          throw e;
+        },
+      );
   }
 }
 
