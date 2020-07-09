@@ -24,7 +24,7 @@ export const direct = async (params: models.Direct): Promise<object> => {
     uri,
     method,
     requestType: "JSON",
-    direct: true,
+    direct: "request",
   };
 
   return await client.send(config, params);

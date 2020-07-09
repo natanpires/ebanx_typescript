@@ -24,6 +24,7 @@ export const refund = async (params: models.Refund): Promise<object> => {
     uri,
     method,
     requestType: "JSON",
+    direct: "request",
   };
 
   return await client.send(config, params);

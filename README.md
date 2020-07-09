@@ -91,13 +91,15 @@ const payment = async () => {
 
 /* METHOD 02 */
 eb.direct(direct)
-								.then((res: any) => console.log(res))
-								.catch((err: any) => console.log(err));
+		.then((res: any) => console.log(res))
+		.catch((err: any) => console.log(err));
 
 ```
 
 ## Changelog
 
+- **1.3.1**: Fixed operation request parameter.
+- **1.3.0**: Refactored client class and added minor changes into interface.
 - **1.2.4**: Added optional security parameters into direct payment interface.
 - **1.2.3**: Added optional auto_capture into credit card interface.
 - **1.2.2**: Fix export interfaces.

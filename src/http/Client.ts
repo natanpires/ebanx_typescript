@@ -20,7 +20,7 @@ class Client {
       method: any;
       params?: object | any;
       requestType?: string;
-      direct?: boolean;
+      direct?: string | undefined;
     },
     params: { [x: string]: any },
   ) {
@@ -44,8 +44,8 @@ class Client {
     options.params = data;
     options.params.integration_key = config.integrationKey;
 
-    if (options.direct) {
-      options.params.operation = "request";
+    if (typeof options.direct !== "undefined") {
+      options.params.operation = options.direct;
     }
 
     if (options.requestType === "JSON") {

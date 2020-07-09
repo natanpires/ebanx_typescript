@@ -16,6 +16,7 @@ export const cancel = async (params: models.Cancel): Promise<object> => {
     uri,
     method,
     requestType: "JSON",
+    direct: "cancel",
   };
 
   return await client.send(config, params);

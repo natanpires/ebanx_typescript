@@ -17,6 +17,7 @@ export const refundOrCancel = async (params: models.RefundOrCancel): Promise<obj
     uri,
     method,
     requestType: "JSON",
+    direct: "cancel",
   };
 
   return await client.send(config, params);

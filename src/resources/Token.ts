@@ -20,7 +20,6 @@ export const token = async (params: models.Token): Promise<object> => {
   const config = {
     uri,
     method,
-    direct: true,
     requestType: "JSON",
   };
 
