@@ -84,7 +84,7 @@ interface Direct {
     instalments: number;
     amount_total: number;
     items?: { [key: string]: Item };
-    creditcard: Creditcard | Tokencard;
+    creditcard?: Creditcard | Tokencard;
   };
 }
 
