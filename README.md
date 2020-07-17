@@ -98,6 +98,7 @@ eb.direct(direct)
 
 ## Changelog
 
+- **1.3.2**: Creditcard parameter is now optional.
 - **1.3.1**: Fixed operation request parameter.
 - **1.3.0**: Refactored client class and added minor changes into interface.
 - **1.2.4**: Added optional security parameters into direct payment interface.
