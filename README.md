@@ -98,6 +98,7 @@ eb.direct(direct)
 
 ## Changelog
 
+- **1.3.3**: Address fields is not mandatory for payment.
 - **1.3.2**: Creditcard parameter is now optional.
 - **1.3.1**: Fixed operation request parameter.
 - **1.3.0**: Refactored client class and added minor changes into interface.
