@@ -2,7 +2,7 @@
   "name": "ebanx-ts",
   "license": "BSD-3-Clause",
   "author": "Natan Pires de Souza <partisansouza@gmail.com> (https://wisereducacao.com/)",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Remake of Ebanx NodeJs library. (Added support to TS)",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -49,8 +49,6 @@
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "tslint": "^6.1.2",
-    "tslint-config-airbnb": "^5.11.2",
-    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.9.5"
   },
   "keywords": [
